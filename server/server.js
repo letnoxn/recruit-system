@@ -2,7 +2,7 @@
 const express=require('express')
 const bodyParser=require('body-parser')
 const cookieParser=require('cookie-parser')
-const querystring = require("querystring")
+
 
 const userRoutre=require('./user')
 
