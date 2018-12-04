@@ -1,9 +1,13 @@
 import React from 'react'
 import Logo from '../../component/logo/logo'
 import { List, InputItem, WingBlank, WhiteSpace, Button } from "antd-mobile"
-import {connect} from 'react-redux'
-import {login} from '../../redux/user.redux'
-import {Redirect} from 'react-router-dom'
+import { connect } from 'react-redux'
+import { login } from '../../redux/user.redux'
+import { Redirect } from 'react-router-dom'
+
+@connect(state => state.user,
+    { login }
+)
 class Login extends React.Component {
     constructor(props) {
         super(props)
@@ -32,12 +36,12 @@ class Login extends React.Component {
 
     render() {
         return (<div>
-                    {this.props.redirectTo?<Redirect to={this.props.redirectTo}></Redirect>:null}
+            {this.props.redirectTo ? <Redirect to={this.props.redirectTo}></Redirect> : null}
             <Logo></Logo>
             <h2>登12</h2>
-            <WingBlank>   
+            <WingBlank>
                 <List>
-                {this.props.msg?<p className="erro-msg">{this.props.msg}</p>:null}
+                    {this.props.msg ? <p className="erro-msg">{this.props.msg}</p> : null}
 
                     <InputItem
                         onChange={v => this.handleChange('user', v)}
@@ -55,7 +59,5 @@ class Login extends React.Component {
     }
 }
 
-const mapStatetoProps = (state) => state.user
-const actionCreators = { login }
-Login = connect(mapStatetoProps, actionCreators)(Login)
+
 export default Login
