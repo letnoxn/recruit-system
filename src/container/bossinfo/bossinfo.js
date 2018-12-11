@@ -58,7 +58,7 @@ class BossInfo extends React.Component {
             onClick={()=>{
                 this.props.update(this.state)
             }}
-            type='primary'>提交</Button>
+            type='primary'>提 交</Button>
         </div>
     }
 }
