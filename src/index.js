@@ -23,7 +23,7 @@ const store = createStore(reducers, compose(
 ))
 
 function Boss(){
-    return <h2>Boss页面</h2>
+   return <h2>Boss页面</h2>
 }
 
 
