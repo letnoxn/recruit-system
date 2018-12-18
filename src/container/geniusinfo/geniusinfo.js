@@ -8,16 +8,14 @@ import {Redirect} from 'react-router-dom'
     state=>state.user,
     {update}
 )
-class BossInfo extends React.Component {
+class GeniusInfo extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
             title:'',
-            desc:'',
-            company:'',
-            money:''
-
+            desc:''
+            
         }
     }
 
@@ -33,8 +31,8 @@ class BossInfo extends React.Component {
         const path = window.location.pathname
     
         return <div>
-           {redirectTo&&redirectTo!=path? <Redirect to={this.props.redirectTo}></Redirect>:null}
-            <NavBar mode="dark"  >Boss完善信息页</NavBar>
+           {redirectTo&&redirectTo!==path? <Redirect to={this.props.redirectTo}></Redirect>:null}
+            <NavBar mode="dark"  >牛人完善信息页</NavBar>
             <AvatarSelector
             selectAvatar={ (v)=>{
               this.setState({
@@ -43,19 +41,13 @@ class BossInfo extends React.Component {
              }}
             ></AvatarSelector>
             <InputItem onChange={(v) => this.onChange('title', v)}>
-                招聘职位
-            </InputItem>
-            <InputItem onChange={(v) => this.onChange('company', v)}>
-                公司名称
-            </InputItem>
-            <InputItem onChange={(v) => this.onChange('money', v)}>
-                职位薪资
+                求职岗位
             </InputItem>
             <TextareaItem  
             onChange={(v) => this.onChange('desc', v)}
             rows={3}
             autoHeight
-            title='职位要求'   
+            title='个人简介'   
             >
             </TextareaItem >
             <Button 
@@ -63,12 +55,12 @@ class BossInfo extends React.Component {
                 this.props.update(this.state)
             }}
             type='primary'>提 交</Button>
-             {this.props.msg ? <p className="erro-msg">{this.props.msg}</p> : null}
+            {this.props.msg ? <p className="erro-msg">{this.props.msg}</p> : null}
         </div>
     }
 }
 
-export default BossInfo
+export default GeniusInfo
 
 
 

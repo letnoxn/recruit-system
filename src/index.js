@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
+import { BrowserRouter, Route,  Switch } from 'react-router-dom'
 
 
 import reducers from './reducer'
@@ -14,7 +14,8 @@ import Register from './container/register/register.js'
 import './config'
 import AuthRoute from './component/authroute/authroute'
 import BossInfo from './container/bossinfo/bossinfo'
-
+import GeniusInfo from './container/geniusinfo/geniusinfo'
+import Dashboard from './component/dashboard/dashboard'
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
     //redux调试
@@ -22,9 +23,7 @@ const store = createStore(reducers, compose(
 
 ))
 
-function Boss(){
-   return <h2>Boss页面</h2>
-}
+
 
 
 ReactDOM.render(
@@ -33,11 +32,15 @@ ReactDOM.render(
         <BrowserRouter>
 
             <div>
+                
                 <AuthRoute></AuthRoute>
+                <Switch>
                 <Route path='/bossinfo' component={BossInfo}></Route>
+                <Route path='/geniusinfo' component={GeniusInfo}></Route>
                 <Route path='/login' component={Login}></Route>
                 <Route path='/register' component={Register}></Route>
-                
+                <Route component={Dashboard}></Route>
+                </Switch>
             </div>
 
         </BrowserRouter>

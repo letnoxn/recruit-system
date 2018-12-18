@@ -1,7 +1,13 @@
 import React from 'react'
 import { Grid,List} from 'antd-mobile'
+import PropTypes from 'prop-types'
 
 class AvatarSelector extends React.Component {
+    static PropTypes={
+        selectAvatar:PropTypes.func.isRequired
+    }
+
+
     constructor(props) {
         super(props)
         this.state = {
@@ -20,6 +26,7 @@ class AvatarSelector extends React.Component {
 
         const gridHeader = this.state.text
             ? (<div>
+
                 <span>头像已选择：</span>
                 <img src={this.state.icon}  style={{'height':'30px' }}></img>
             </div>)
