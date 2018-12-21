@@ -4,9 +4,8 @@ import { NavBar } from 'antd-mobile'
 import { Switch, Route } from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
-function Genius() {
-    return <h2>牛人首页</h2>
-}
+import Genius from '../../component/genius/genius'
+
 function Msg() {
     return <h2>消息列表</h2>
 }
@@ -19,9 +18,6 @@ function User() {
     state => state
 )
 class Dashboard extends React.Component {
-
-
-
 
     render() {
         const { pathname } = this.props.location
@@ -65,11 +61,11 @@ class Dashboard extends React.Component {
                 <div style={{ marginTop: '45px' }}></div>
                 <Switch>
                     {navList.map(v =>(
-                        <Route key={v.key} path={v.path} component={v.component}></Route>
+                        <Route key={v.path} path={v.path} component={v.component}></Route>
                     ))}
                 </Switch>
 
-                <NavLinkBar data={navList}></NavLinkBar>
+                <NavLinkBar className='am-navbar' data={navList}></NavLinkBar>
             </div>
 
 

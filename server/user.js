@@ -3,6 +3,8 @@ const Router = express.Router()
 const model = require('./model')
 const User=model.getModel('user')
 
+const _filter = {'pwd':0,'__v':0}
+
 Router.get('/list',function(req,res){
     const {type} =req.query
     User.find({type},function(err,doc){
@@ -61,7 +63,7 @@ Router.get('/info',function(req,res){
     if(!userid){
     return res.json({code:1})
     }
-    User.findOne({_id:userid},function(err,doc){
+    User.findOne({_id:userid},_filter,function(err,doc){
         if(err){
             return res.json({code:1,msg:'后端出错'})
         }

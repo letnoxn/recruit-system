@@ -3,6 +3,7 @@ import { getRedirectPath } from '../util'
 
 const ERROR_MSG = 'ERROR_MSG'
 const AUTH_SUCCESS = 'AUTH_SUCCESS'
+const LOAD_DATA = 'LOAD_DATA'
 const initState = {
 
     msg: '',
@@ -17,7 +18,8 @@ export function user(state = initState, action) {
     switch (action.type) {
         case AUTH_SUCCESS:
             return { ...state, mag: '', redirectTo: getRedirectPath(action.payload), ...action.payload }
-
+        case LOAD_DATA:
+          return {...state,...action.payload}
         case ERROR_MSG:
             return { ...state, msg: action.msg }
         default:
@@ -54,7 +56,9 @@ export function update(data) {
             })
     }
 }
-
+export function loadData(userinfo){
+    return {type:LOAD_DATA,payload:userinfo}
+}
 export function login({ user, pwd }) {
     if (!user || !pwd) {
         return errorMsg('用户名密码必须输入')
