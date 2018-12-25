@@ -5,13 +5,12 @@ import { Switch, Route } from 'react-router-dom'
 import NavLinkBar from '../navlink/navlink'
 import Boss from '../../component/boss/boss'
 import Genius from '../../component/genius/genius'
+import User from '../../component/user/user'
 
 function Msg() {
     return <h2>消息列表</h2>
 }
-function User() {
-    return <h2>个人中心</h2>
-}
+
 
 
 @connect(
@@ -57,14 +56,14 @@ class Dashboard extends React.Component {
         ]
         return (
             <div>
-                {pathname == '/boss' || pathname == '/genius' || pathname == '/msg' || pathname == '/me' ? <NavBar className='fixd-header' mode='dard'>{navList.find(v => v.path === pathname).title}</NavBar> : <h2>404</h2>}
-                <div style={{ marginTop: '45px' }}></div>
+               <NavBar className='fixd-header' mode='dard'>{navList.find(v => v.path === pathname).title}</NavBar> 
+                <div style={{marginTop:50,marginBottom:50}}>
                 <Switch>
                     {navList.map(v =>(
                         <Route key={v.path} path={v.path} component={v.component}></Route>
                     ))}
                 </Switch>
-
+                </div>
                 <NavLinkBar className='am-navbar' data={navList}></NavLinkBar>
             </div>
 
