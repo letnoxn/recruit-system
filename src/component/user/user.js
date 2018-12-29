@@ -25,7 +25,7 @@ class User extends React.Component {
 
 
     }
-
+  
     render() {
         const props = this.props
         const Item = List.Item
@@ -52,8 +52,11 @@ class User extends React.Component {
                 </List>
                 <WhiteSpace></WhiteSpace>
                 <List >
+                    <Item onClick={()=>this.props.history.push('/change')}> 重新设置</Item>
+                </List>
+                <WhiteSpace></WhiteSpace>
+                <List >
                     <Item onClick={this.logout}> 退出登录</Item>
-
                 </List>
             </div>
         ) : null

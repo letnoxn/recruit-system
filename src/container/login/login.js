@@ -39,7 +39,7 @@ class Login extends React.Component {
         return (<div>
             {this.props.redirectTo ? <Redirect to={this.props.redirectTo}></Redirect> : null}
             <Logo></Logo>
-            <h2 style={{'text-align':'center'}}>登录页</h2>
+            <h2 style={{textAlign:'center'}}>登录页</h2>
             <WingBlank>
                 <List>
                     {this.props.msg ? <p className="erro-msg">{this.props.msg}</p> : null}
