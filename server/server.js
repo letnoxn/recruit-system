@@ -29,8 +29,8 @@ io.on('connection', function (socket) {
 const userRoutre = require('./user')
 
 
-
 //app.use(express.static(path.join(__dirname,'./build')))
+//cookieparser,bodyparser要在userRoutre之上
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use('/user', userRoutre)
