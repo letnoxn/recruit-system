@@ -92,7 +92,7 @@ Router.use('/register', function (req, res) {
 
 Router.get('/info', function (req, res) {
     //用户有没有cookie
-    const { userid } = req.cookies
+    const { userid } = req.cookies||{}
     if (!userid) {
         return res.json({ code: 1 })
     }
